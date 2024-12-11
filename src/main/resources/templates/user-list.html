@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Listesi</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" />
+</head>
+<body>
+<div class="boxContainer column poem">
+    <div class="row">
+        <p>Name</p>
+        <p>Authority</p>
+        <p>Email</p>
+        <p>Phone</p>
+        <p style="width: 60px; flex: none;">Actions</p>
+    </div>
+    <div class="poem column" style="width: 100%;">
+        <div th:each="user : ${users}" class="item">
+            <p th:text="${user.name}"></p>
+            <p th:text="${user.authority}"></p>
+            <p th:text="${user.email}"></p>
+            <p th:text="${user.phone}"></p>
+            <a href="/users/edit/{id}" th:href="@{/users/edit/{id}(id=${user.id})}">
+                <img th:src="@{/static/images/pencil.png}" alt="Edit">
+            </a>
+            <a href="/users/delete/{id}" th:href="@{/users/delete/{id}(id=${user.id})}">
+                <img th:src="@{/static/images/delete.png}" alt="Delete">
+            </a>
+        </div>
+    </div>
+</div>
+<a href="/users/new"><div class="ekleBtn">Add a New User</div></a>
+
+</body>
+</html>

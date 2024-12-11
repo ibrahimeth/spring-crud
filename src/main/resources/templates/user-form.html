@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" />
+</head>
+<body>
+<div class="boxContainer column">
+    <form id="myForm" th:action="@{/users}" th:object="${user}" method="post">
+        <div class="column">
+            <div class="row">
+                <p>Name</p>
+                <input type="text" th:field="*{name}" placeholder="Name"/>
+            </div>
+            <div class="row">
+                <p>Authority</p>
+                <input type="text" th:field="*{authority}" placeholder="Authority"/>
+            </div>
+            <div class="row">
+                <p>Email</p>
+                <input type="email" th:field="*{email}" placeholder="Email"/>
+            </div>
+            <div class="row">
+                <p>Phone</p>
+                <input type="text" th:field="*{phone}" placeholder="Phone"/>
+            </div>
+            <button type="submit" class="ekleBtn">Save</button>
+        </div>
+    </form>
+</div>
+<a href="/users"><div class="vazgecBtn">Cancel</div></a>
+</body>
+</html>
